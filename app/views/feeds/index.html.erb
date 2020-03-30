@@ -1,2 +1,21 @@
 <h1>投稿した写真一覧</h1>
 <%= link_to "画像を投稿する", new_feed_path, class: "btn btn-primary" %>
+
+<div class="mb-3">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>写真</th>
+        <th>コメント</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @feeds.each do |feed| %>
+        <tr>
+          <td><%= feed.image %></td>
+          <td><%= feed.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
