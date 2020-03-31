@@ -1,4 +1,6 @@
 class FeedsController < ApplicationController
+  before_action :set_id, only: [:show, :edit, :update, :destroy]
+
   def index
     @feeds = Feed.all
   end
@@ -17,15 +19,12 @@ class FeedsController < ApplicationController
   end
 
   def show
-    @feed = Feed.find(params[:id])
   end
 
   def edit
-    @feed = Feed.find(params[:id])
   end
 
   def update
-    @feed = Feed.find(params[:id])
     if @feed.update(feed_params)
       redirect_to feeds_path, notice: "投稿を編集しました。"
     else
@@ -34,7 +33,6 @@ class FeedsController < ApplicationController
   end
 
   def destroy
-    @feed = Feed.find(params[:id])
     @feed.destroy
     redirect_to feeds_path, notice: "投稿を削除しました。"
   end
@@ -43,5 +41,9 @@ class FeedsController < ApplicationController
 
   def feed_params
     params.require(:feed).permit(:image, :description)
+  end
+
+  def set_id
+    @feed = Feed.find(params[:id])
   end
 end
