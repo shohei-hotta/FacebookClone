@@ -10,7 +10,7 @@
     <th>コメント</th>
   </tr>
   <tr>
-    <td><%= @feed.image %></td>
+    <td><%= image_tag @feed.image.url unless @feed.image.nil? %></td>
     <td><%= @feed.description %></td>
   </tr>
 </table>
