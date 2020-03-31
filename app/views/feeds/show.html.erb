@@ -1,2 +1,16 @@
-<h1>Feeds#show</h1>
-<p>Find me in app/views/feeds/show.html.erb</p>
+<h1>写真の詳細</h1>
+
+<div class="nav justify-content-end">
+  <%= link_to "一覧", feeds_path, class: "nav-link" %>
+</div>
+
+<table class="table">
+  <tr>
+    <th>写真</th>
+    <th>コメント</th>
+  </tr>
+  <tr>
+    <td><%= @feed.image %></td>
+    <td><%= @feed.description %></td>
+  </tr>
+</table>

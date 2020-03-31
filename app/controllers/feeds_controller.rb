@@ -17,6 +17,7 @@ class FeedsController < ApplicationController
   end
 
   def show
+    @feed = Feed.find(params[:id])
   end
 
   def edit
