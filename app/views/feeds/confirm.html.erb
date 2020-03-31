@@ -1,0 +1,9 @@
+<h3>以下の内容で投稿する</h3>
+<%= form_with(model: @feed, local: true) do |f| %>
+  <%= f.hidden_field :image %>
+  <%= f.hidden_field :description %>
+  <p>画像:<%= @feed.image %></p>
+  <p>投稿内容:<%= @feed.description %></p>
+  <%= f.submit nil, class: "btn btn-primary" %>
+  <%= f.submit "戻る", name: "back", class: "btn btn-link" %> 
+<% end %>

@@ -11,10 +11,14 @@ class FeedsController < ApplicationController
 
   def create
     @feed = Feed.new(feed_params)
-    if @feed.save
-      redirect_to feeds_path, notice: "写真を投稿しました。"
-    else
+    if params[:back]
       render :new
+    else
+      if @feed.save
+        redirect_to feeds_path, notice: "写真を投稿しました。"
+      else
+        render :new
+      end
     end
   end
 
@@ -35,6 +39,11 @@ class FeedsController < ApplicationController
   def destroy
     @feed.destroy
     redirect_to feeds_path, notice: "投稿を削除しました。"
+  end
+
+  def confirm
+    @feed = Feed.new(feed_params)
+    render :new if @feed.invalid?
   end
 
   private

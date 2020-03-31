@@ -6,7 +6,7 @@
   </ul>
 <% end %>
 
-<%= form_with(model: feed, local: true) do |f| %>
+<%= form_with(model: feed, local: true, url: choose_new_or_edit) do |f| %>
   <div class="form-group">
     <%= f.label :image %>
     <%= f.text_area :image, class: "form-control", id: "feed_image" %>
