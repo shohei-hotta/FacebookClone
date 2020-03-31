@@ -15,6 +15,7 @@
           <td><%= link_to feed.image, feed_path(feed.id) %></td>
           <td><%= feed.description %></td>
           <td><%= link_to "編集", edit_feed_path(feed.id), class: "btn btn-primary" %></td>
+          <td><%= link_to "削除", feed_path(feed.id), method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>

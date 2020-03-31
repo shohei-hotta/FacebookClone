@@ -27,10 +27,16 @@ class FeedsController < ApplicationController
   def update
     @feed = Feed.find(params[:id])
     if @feed.update(feed_params)
-      redirect_to feeds_path, notice: "投稿を編集しました"
+      redirect_to feeds_path, notice: "投稿を編集しました。"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @feed = Feed.find(params[:id])
+    @feed.destroy
+    redirect_to feeds_path, notice: "投稿を削除しました。"
   end
 
   private
