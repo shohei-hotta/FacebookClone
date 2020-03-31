@@ -12,7 +12,9 @@
     <tbody>
       <% @feeds.each do |feed| %>
         <tr>
-          <td><%= image_tag feed.image.url unless feed.image.nil? %></td>
+          <% if feed.image.present? %>
+            <td><%= image_tag feed.image.url %></td>
+          <% end %>
           <td><%= feed.description %></td>
           <td><%= link_to "詳細", feed_path(feed.id) %></td>
           <td><%= link_to "編集", edit_feed_path(feed.id), class: "btn btn-primary" %></td>
