@@ -8,10 +8,12 @@
   <tr>
     <th>写真</th>
     <th>コメント</th>
+    <th>投稿者</th>
   </tr>
   <tr>
     <td><%= image_tag @feed.image.url unless @feed.image.nil? %></td>
     <td><%= @feed.description %></td>
+    <td><%= @feed.user.name %></td>
   </tr>
 </table>
 
