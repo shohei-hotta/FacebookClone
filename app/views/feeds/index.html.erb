@@ -2,25 +2,18 @@
 <%= link_to "画像を投稿する", new_feed_path, class: "btn btn-primary" %>
 
 <div class="mb-3">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>写真</th>
-        <th>コメント</th>
-        <th>投稿者</th>
-      </tr>
-    </thead>
+  <table class="table container">
     <tbody>
       <% @feeds.each do |feed| %>
-        <tr>
+        <tr class="row">
           <% if feed.image.present? %>
-            <td><%= image_tag feed.image.url %></td>
+            <td class="col-md-12"><%= image_tag feed.image.url %></td>
           <% end %>
-          <td><%= feed.description %></td>
-          <td><%= feed.user.name %></td>
-          <td><%= link_to "詳細", feed_path(feed.id) %></td>
-          <td><%= link_to "編集", edit_feed_path(feed.id), class: "btn btn-primary" %></td>
-          <td><%= link_to "削除", feed_path(feed.id), method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: "btn btn-danger" %></td>
+          <td class="col-md-12"><%= feed.description %></td>
+          <td class="col-md-1"><%= feed.user.name %>の投稿</td>
+          <td class="col-md-1"><%= link_to "詳細", feed_path(feed.id) %></td>
+          <td class="col-md-1"><%= link_to "編集", edit_feed_path(feed.id), class: "btn btn-primary" %></td>
+          <td class="col-md-1"><%= link_to "削除", feed_path(feed.id), method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
