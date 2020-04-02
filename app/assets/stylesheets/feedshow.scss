@@ -1,0 +1,43 @@
+.show-image {
+  .img {
+    width: 100%;
+    height: auto;
+  }
+}
+.postbox-link {
+  display: flex;
+  margin-bottom: 2rem;
+
+  .edit-button {
+    display: block;
+    width: 4rem;
+    padding: 0.2rem;
+    margin-left: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: darkolivegreen;
+    border: 2px solid darkolivegreen;
+    border-radius: 3px;
+    transition: .4s;
+  }
+  .edit-button:hover {
+    background: darkolivegreen;
+    color: #fff;
+  }
+  .delete-button {
+    display: block;
+    width: 4rem;
+    padding: 0.2rem;
+    margin-left: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: darkred;
+    border: 2px solid darkred;
+    border-radius: 3px;
+    transition: .4s;
+  }
+  .delete-button:hover {
+    background: darkred;
+    color: #fff;
+  }
+}

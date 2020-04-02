@@ -6,6 +6,6 @@ ja:
       feed:
         id: ID
         image: 画像
-        description: 投稿内容
+        description: コメント
         created_at: 投稿日時
         updated_at: 更新日時

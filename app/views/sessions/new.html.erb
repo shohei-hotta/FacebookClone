@@ -1,6 +1,8 @@
-<h1>ログイン</h1>
+<div class="heading">
+  <h1>ログイン</h1>
+</div>
 
-<%= form_with(scope: :session, local: true) do |f| %>
+<%= form_with(scope: :session, local: true, url: login_path) do |f| %>
   <div class="form-group">
     <%= f.label :email, "メールアドレス" %>
     <%= f.text_field :email, class: "form-control",id: "session_email" %>

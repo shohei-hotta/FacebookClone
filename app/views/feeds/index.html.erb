@@ -1,21 +1,30 @@
-<h1>投稿した写真一覧</h1>
-<%= link_to "画像を投稿する", new_feed_path, class: "btn btn-primary" %>
-
-<div class="mb-3">
-  <table class="table container">
-    <tbody>
-      <% @feeds.each do |feed| %>
-        <tr class="row">
-          <% if feed.image.present? %>
-            <td class="col-md-12"><%= image_tag feed.image.url %></td>
-          <% end %>
-          <td class="col-md-12"><%= feed.description %></td>
-          <td class="col-md-1"><%= feed.user.name %>の投稿</td>
-          <td class="col-md-1"><%= link_to "詳細", feed_path(feed.id) %></td>
-          <td class="col-md-1"><%= link_to "編集", edit_feed_path(feed.id), class: "btn btn-primary" %></td>
-          <td class="col-md-1"><%= link_to "削除", feed_path(feed.id), method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: "btn btn-danger" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="new-post">
+    <%= link_to "新規投稿", new_feed_path, class: "post-button" %>
+  </div>
+  <% @feeds.each do |feed| %>
+    <div class="post-box">
+      <div class="post-box-header">
+        <div class="post-box-poster">
+          <%= feed.user.name %>
+        </div>
+        <div class="post-box-time">
+          <%= feed.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+        </div>
+      </div>
+      <div class="post-box-comment">
+        <%= feed.description %>
+      </div>
+      <div class="post-box-image">
+        <% if feed.image.present? %>
+          <div><%= image_tag feed.image.url, class:"img" %></div>
+        <% end %>
+      </div>
+      <div class="post-box-link">
+        <div class="btn"><%= link_to "詳細", feed_path(feed.id), class: "info-button" %></div>
+        <div class="btn"><%= link_to "編集", edit_feed_path(feed.id), class: "edit-button" %></div>
+        <div class="btn"><%= link_to "削除", feed_path(feed.id), method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: "delete-button" %></div>
+      </div>
+    </div>
+  <% end %>
 </div>

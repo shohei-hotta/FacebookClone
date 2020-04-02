@@ -1,4 +1,6 @@
-<h1>写真の詳細</h1>
+<div class="heading">
+  <h1>投稿の詳細</h1>
+</div>
 
 <div class="nav justify-content-end">
   <%= link_to "一覧", feeds_path, class: "nav-link" %>
@@ -6,16 +8,20 @@
 
 <table class="table">
   <tr>
-    <th>写真</th>
-    <th>コメント</th>
     <th>投稿者</th>
+    <th>コメント</th>
   </tr>
   <tr>
-    <td><%= image_tag @feed.image.url unless @feed.image.nil? %></td>
-    <td><%= @feed.description %></td>
     <td><%= @feed.user.name %></td>
+    <td><%= @feed.description %></td>
   </tr>
 </table>
-
-<%= link_to "編集", edit_feed_path, class: "btn btn-primary" %>
-<%= link_to "削除", feed_path, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: "btn btn-danger" %></td>
+<div class="show-image">
+  <% if @feed.image.present? %>
+    <td><%= image_tag @feed.image.url class: "img" %></td>
+  <% end %>
+</div>
+<div class="postbox-link">
+  <%= link_to "編集", edit_feed_path, class: "edit-button" %>
+  <%= link_to "削除", feed_path, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？" }, class: "delete-button" %></td>
+</div>
