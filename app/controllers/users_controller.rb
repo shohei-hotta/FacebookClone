@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id), notice: "ユーザー登録が完了しました。"
+      session[:user_id] = @user.id
+      redirect_to feeds_path, notice: "アカウントを登録しました。"
     else
       render :new
     end
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  private
+  private 
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

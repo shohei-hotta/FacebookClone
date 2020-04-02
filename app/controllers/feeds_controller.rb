@@ -15,7 +15,7 @@ class FeedsController < ApplicationController
       render :new
     else
       if @feed.save
-        redirect_to feeds_path, notice: "写真を投稿しました。"
+        redirect_to feeds_path, notice: "投稿しました。"
       else
         render :new
       end
